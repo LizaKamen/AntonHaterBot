@@ -15,7 +15,7 @@ class Program
         using var cts = new CancellationTokenSource();
         var botClient = new TelegramBotClient(antonHateConfig.Token, cancellationToken: cts.Token);
 
-        var userRuleProvider = new ConfigurationUserRuleProvider(antonHateConfig.Rulesets ?? Array.Empty<UserRules>());
+        var userRuleProvider = new ConfigurationUserRuleProvider(antonHateConfig.Rulesets);
         var ruleMatcher = new RuleMatcher();
         var messageReactionHandler = new MessageReactionHandler(botClient, userRuleProvider, ruleMatcher);
 

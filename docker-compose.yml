@@ -6,6 +6,8 @@ services:
       dockerfile: Dockerfile
       args:
         BUILD_CONFIGURATION: Release
+    stdin_open: true
+    tty: true
     restart: unless-stopped
     environment:
       - DOTNET_ENVIRONMENT=Production

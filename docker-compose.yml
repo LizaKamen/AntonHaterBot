@@ -1,0 +1,13 @@
+services:
+  anton-hater-bot:
+    image: anton-hater-bot:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_CONFIGURATION: Release
+    restart: unless-stopped
+    environment:
+      - DOTNET_ENVIRONMENT=Production
+    volumes:
+      - ./AntonHateBot/appsettings.json:/app/appsettings.json:ro

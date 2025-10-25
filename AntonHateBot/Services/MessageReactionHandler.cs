@@ -25,12 +25,12 @@ public class MessageReactionHandler
     {
         _ = updateType;
 
-        if (message.From?.FirstName is null)
+        if (message.From?.Username is null)
         {
             return;
         }
 
-        var userRules = _userRuleProvider.FindRulesFor(message.From.FirstName);
+        var userRules = _userRuleProvider.FindRulesFor(message.From.Username);
         if (userRules is null)
         {
             return;
